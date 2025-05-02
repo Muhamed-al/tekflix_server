@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v0/movies")
+@CrossOrigin(origins = "http://localhost:4200")
 public class MovieController {
 
     private final IMovieService movieService;
@@ -24,7 +25,7 @@ public class MovieController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Movie> getMovieById(Long id) {
+    public Optional<Movie> getMovieById(@PathVariable Long id) {
         return movieService.getMovieById(id);
     }
 
